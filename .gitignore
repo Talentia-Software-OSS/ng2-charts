@@ -6,8 +6,7 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/apps/ng2-charts-e2e/src/e2e/__image_snapshots__/*.actual.png
-/apps/ng2-charts-e2e/src/e2e/__image_snapshots__/*.diff.png
+/cypress/snapshots/*/__diff_output__
 
 # dependencies
 node_modules
@@ -17,7 +16,6 @@ chrome-profiler-events.json
 speed-measure-plugin.json
 
 # IDEs and editors
-
 /.idea
 .project
 .classpath
@@ -50,5 +48,3 @@ testem.log
 Thumbs.db
 /temp
 /Web.config
-
-.angular
