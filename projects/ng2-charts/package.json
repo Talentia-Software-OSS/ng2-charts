@@ -20,13 +20,13 @@
       "name": "Aviad Pineles"
     }
   ],
-  "homepage": "https://github.com/valor-software/ng2-charts#readme",
+  "homepage": "https://github.com/Talentia-Software-OSS/ng2-charts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/valor-software/ng2-charts.git"
+    "url": "https://github.com/Talentia-Software-OSS/ng2-charts.git"
   },
   "bugs": {
-    "url": "https://github.com/valor-software/ng2-charts/issues"
+    "url": "https://github.com/Talentia-Software-OSS/ng2-charts/issues"
   },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
