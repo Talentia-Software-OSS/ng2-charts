@@ -1,33 +1,25 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "module": "esnext",
+    "module": "es2020",
     "lib": [
-      "es2020",
+      "es2018",
       "dom"
     ],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
     "paths": {
       "ng2-charts": [
-        "libs/ng2-charts/src/index.ts"
-      ],
-      "ng2-charts-schematics": [
-        "libs/ng2-charts-schematics/src/index.ts"
+        "dist/ng2-charts/ng2-charts",
+        "dist/ng2-charts"
       ]
     }
-  },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  }
 }
