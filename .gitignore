@@ -48,3 +48,5 @@ testem.log
 Thumbs.db
 /temp
 /Web.config
+
+/chartjs-chart-financial
