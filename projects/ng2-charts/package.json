@@ -8,9 +8,6 @@
     "chart.js",
     "angular"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "author": {
     "name": "Leonardo Cavone",
     "url": "https://github.com/Talentia-Software-OSS"
