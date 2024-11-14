@@ -1,6 +1,6 @@
 {
   "name": "@talentia/ng2-charts",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "Reactive, responsive, beautiful charts for Angular2 based on Chart.js",
   "main": "src/public_api.ts",
   "license": "ISC",
@@ -8,9 +8,6 @@
     "chart.js",
     "angular"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "author": {
     "name": "Leonardo Cavone",
     "url": "https://github.com/Talentia-Software-OSS"
@@ -29,12 +26,12 @@
     "url": "https://github.com/Talentia-Software-OSS/ng2-charts/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0",
-    "chart.js": "^2.9.4"
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "chart.js": "2.9.4"
   },
   "dependencies": {
-    "@types/chart.js": "^2.9.24",
+    "@types/chart.js": "2.9.24",
     "lodash-es": "^4.17.15"
   },
   "devDependencies": {
