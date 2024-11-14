@@ -76,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng2-charts-demo:build"
+            "buildTarget": "ng2-charts-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng2-charts-demo:build:production"
+              "buildTarget": "ng2-charts-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng2-charts-demo:build"
+            "buildTarget": "ng2-charts-demo:build"
           }
         },
         "test": {
@@ -146,5 +146,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

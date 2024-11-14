@@ -58,7 +58,7 @@
             ### Usage
 
             ```typescript
-                import {{ '{' }} ChartsModule } from 'ng2-charts';
+                import {{ '{' }} ChartsModule &#125; from 'ng2-charts';
 
                 // In your App's module:
                 imports: [
@@ -74,7 +74,7 @@
             **Note**: For more information about possible options please refer to original [chart.js](http://www.chartjs.org/docs) documentation
 
             - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
-            - `datasets` (`{{ '{' }}data: SingleDataSet, label: string}[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
+            - `datasets` (`{{ '{' }}data: SingleDataSet, label: string&#125;[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
             - `labels` (`Label[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`. `Label` is either a single `string`, or it may be a `string[]` representing a multi-line label where each array element is on a new line.
             - `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
             - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
@@ -101,37 +101,37 @@
               private _selectedTheme: Theme = 'light-theme';
               public get selectedTheme() {{ '{' }}
                 return this._selectedTheme;
-              }
+              &#125;
               public set selectedTheme(value) {{ '{' }}
                 this._selectedTheme = value;
                 let overrides: ChartOptions;
                 if (this.selectedTheme === 'dark-theme') {{ '{' }}
                   overrides = {{ '{' }}
                     legend: {{ '{' }}
-                      labels: {{ '{' }} fontColor: 'white' }
-                    },
+                      labels: {{ '{' }} fontColor: 'white' &#125;
+                    &#125;,
                     scales: {{ '{' }}
                       xAxes: [{{ '{' }}
-                        ticks: {{ '{' }} fontColor: 'white' },
-                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-                      }],
+                        ticks: {{ '{' }} fontColor: 'white' &#125;,
+                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' &#125;
+                      &#125;],
                       yAxes: [{{ '{' }}
-                        ticks: {{ '{' }} fontColor: 'white' },
-                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' }
-                      }]
-                    }
-                  };
-                } else {{ '{' }}
-                  overrides = {{ '{' }}};
-                }
+                        ticks: {{ '{' }} fontColor: 'white' &#125;,
+                        gridLines: {{ '{' }} color: 'rgba(255,255,255,0.1)' &#125;
+                      &#125;]
+                    &#125;
+                  &#125;;
+                &#125; else {{ '{' }}
+                  overrides = {{ '{' }}&#125;;
+                &#125;
                 this.themeService.setColorschemesOptions(overrides);
-              }
+              &#125;
 
-              constructor(private themeService: ThemeService) {{ '{' }} }
+              constructor(private themeService: ThemeService) {{ '{' }} &#125;
 
               setCurrentTheme(theme: Theme) {{ '{' }}
                 this.selectedTheme = theme;
-              }
+              &#125;
               ```
 
               The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
