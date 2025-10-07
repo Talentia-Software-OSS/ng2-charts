@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Directive,
   DoCheck,
   ElementRef,
@@ -27,7 +26,7 @@ import {
   pluginService
 } from 'chart.js';
 
-export type SingleDataSet = Array<number | null | undefined | number[]> | ChartPoint[];
+export type SingleDataSet = (number | null | undefined | number[])[] | ChartPoint[];
 export type MultiDataSet = SingleDataSet[];
 export type SingleOrMultiDataSet = SingleDataSet | MultiDataSet;
 
@@ -62,7 +61,7 @@ enum UpdateType {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
+  standalone: false,
   selector: 'canvas[baseChart]',
   exportAs: 'base-chart'
 })
@@ -76,8 +75,8 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
   @Input() public legend: boolean;
   @Input() public plugins: PluginServiceGlobalRegistrationAndOptions[];
 
-  @Output() public chartClick: EventEmitter<{ event?: MouseEvent, active?: {}[] }> = new EventEmitter();
-  @Output() public chartHover: EventEmitter<{ event: MouseEvent, active: {}[] }> = new EventEmitter();
+  @Output() public chartClick = new EventEmitter<{ event?: MouseEvent, active?: {}[] }>();
+  @Output() public chartHover = new EventEmitter<{ event: MouseEvent, active: {}[] }>();
 
   public ctx: string;
   public chart: Chart;
@@ -310,36 +309,36 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
 
     // Check if the changes are in the data or datasets or labels or legend
 
-    if (changes.hasOwnProperty('data') && changes.data.currentValue) {
-      this.propagateDataToDatasets(changes.data.currentValue);
+    if (Object.prototype.hasOwnProperty.call(changes, 'data') && changes['data'].currentValue) {
+      this.propagateDataToDatasets(changes['data'].currentValue);
 
       wantUpdate(UpdateType.Update);
     }
 
-    if (changes.hasOwnProperty('datasets') && changes.datasets.currentValue) {
-      this.propagateDatasetsToData(changes.datasets.currentValue);
+    if (Object.prototype.hasOwnProperty.call(changes, 'datasets') && changes['datasets'].currentValue) {
+      this.propagateDatasetsToData(changes['datasets'].currentValue);
 
       wantUpdate(UpdateType.Update);
     }
 
-    if (changes.hasOwnProperty('labels')) {
+    if (Object.prototype.hasOwnProperty.call(changes, 'labels')) {
       if (this.chart) {
-        this.chart.data.labels = changes.labels.currentValue;
+        this.chart.data.labels = changes['labels'].currentValue;
       }
 
       wantUpdate(UpdateType.Update);
     }
 
-    if (changes.hasOwnProperty('legend')) {
+    if (Object.prototype.hasOwnProperty.call(changes, 'legend')) {
       if (this.chart) {
-        this.chart.config.options.legend.display = changes.legend.currentValue;
+        this.chart.config.options.legend.display = changes['legend'].currentValue;
         this.chart.generateLegend();
       }
 
       wantUpdate(UpdateType.Update);
     }
 
-    if (changes.hasOwnProperty('options')) {
+    if (Object.prototype.hasOwnProperty.call(changes, 'options')) {
       wantUpdate(UpdateType.Refresh);
     }
 
@@ -366,6 +365,8 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     if (this.chart) {
       return this.chart.update(duration);
     }
+
+    return {};
   }
 
   public hideDataset(index: number, hidden: boolean): void {
@@ -423,7 +424,7 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     return new Chart(ctx, chartConfig);
   }
 
-  smartMerge(options: any, overrides: any, level: number = 0): any {
+  smartMerge(options: any, overrides: any, level = 0): any {
     if (level === 0) {
       options = cloneDeep(options);
     }
@@ -480,7 +481,7 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
           dataset.data = newDataValues[i];
         });
       } else {
-        this.datasets = newDataValues.map((data: number[], index: number) => {
+        this.datasets = newDataValues.map((data, index: number) => {
           return { data, label: this.joinLabel(this.labels[index]) || `Label ${index}` };
         });
         if (this.chart) {
@@ -524,6 +525,8 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
       this.propagateDataToDatasets(this.data);
       return this.datasets;
     }
+
+    return [];
   }
 
   private refresh(): void {

@@ -1,51 +1,28 @@
-# ng2-charts [![npm version](https://badge.fury.io/js/ng2-charts.svg)](http://badge.fury.io/js/ng2-charts) [![npm downloads](https://img.shields.io/npm/dm/ng2-charts.svg)](https://npmjs.org/ng2-charts) ![Travis CI](https://travis-ci.org/valor-software/ng2-charts.svg?branch=development) [slack](https://ngx-home.slack.com)
-Beautiful charts for Angular2 based on Chart.js
+# @talentia/ng2-charts
 
-**Library updated for Angular 10**
-
-<!-- [![Sauce Test Status](https://saucelabs.com/browser-matrix/valorkin.svg)](https://saucelabs.com/u/valorkin) -->
-[![NPM](https://nodei.co/npm/ng2-charts.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ng2-charts)
-[![NPM](https://nodei.co/npm-dl/ng2-charts.png?height=3&months=9)](https://npmjs.org/ng2-charts)
-
-
-# Usage & Demo
-
-Sample using ng2-charts@2.4.2
-
-https://valor-software.com/ng2-charts/
-
+Reactive, responsive, beautiful charts for Angular based on Chart.js
 
 - - -
 
 ### Installation
 
-1. You can install ***ng2-charts*** using npm
+1. You can install ***@talentia/ng2-charts*** using npm
 
   ```bash
-  npm install ng2-charts@2.4.2 --save
+  npm install @talentia/ng2-charts@2.4.8 --save
   ```
-2. You need to install and include `Chart.js` library in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
+
+2. You need to install and include `Chart.js` v2.9.4 in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
   ```bash
-  npm install chart.js --save
+  npm install chart.js@2.9.4 --save
   ```
-
-### Stackblitz Starting Templates
-
-* Line Chart - https://stackblitz.com/edit/ng2-charts-line-template
-* Pie Chart - https://stackblitz.com/edit/ng2-charts-pie-template
-* Bar Chart - https://stackblitz.com/edit/ng2-charts-bar-template
-* Doughnut Chart - https://stackblitz.com/edit/ng2-charts-doughnut-template
-* Radar Chart - https://stackblitz.com/edit/ng2-charts-radar-template
-* Polar Area Chart - https://stackblitz.com/edit/ng2-charts-polar-area-template
-* Bubble Chart - https://stackblitz.com/edit/ng2-charts-bubble-template
-* Scatter Chart - https://stackblitz.com/edit/ng2-charts-scatter-template
 
 ## API
 
 ### Import
 ```typescript
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule } from '@talentia/ng2-charts';
 
 // In your App's module:
 imports: [
@@ -123,24 +100,6 @@ setCurrentTheme(theme: Theme) {
 
 The `overrides` object has the same type as the chart options object `ChartOptions`, and wherever a simple field is encountered it replaces the matching field in the `options` object. When an array is encountered (as in the `xAxes` and `yAxes` fields above), the single object inside the array is used as a template to override all array elements in the matching field in the `options` object. So in the case above, every axis will have its ticks and gridline colors changed.
 
-## Schematics
-
-There are schematics that may be used to generate chart components using Angular CLI. The components are defined in package `ng2-charts-schematics`.
-
-### Installation of Schematics Package
-
-```bash
-npm install --save-dev ng2-charts-schematics
-```
-
-### Example of Generating a Line Chart using Angular CLI
-
-```bash
-ng generate ng2-charts-schematics:line my-line-chart
-```
-
-This calls angular's component schematics and then modifies the result, so all the options for the component schematic are also usable here. This schematics will also add the `ChartsModule` as an imported module in the main app module (or another module as specified in the `--module` command switch).
-
 ## Troubleshooting
 
 Please follow this guidelines when reporting bugs and feature requests:
@@ -150,6 +109,16 @@ Please follow this guidelines when reporting bugs and feature requests:
 
 Thanks for understanding!
 
-### License
+## Further help
 
-The MIT License (see the [LICENSE](https://github.com/valor-software/ng2-charts/blob/master/LICENSE) file for the full text)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Reference
+
+This project is forked from [ng2-charts](https://github.com/valor-software/ng2-charts).
+
+## License
+
+ISC

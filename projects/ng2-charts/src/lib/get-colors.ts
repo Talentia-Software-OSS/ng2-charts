@@ -33,7 +33,7 @@ export function getColors(chartType: string, index: number, count: number): Colo
   throw new Error('getColors - Unsupported chart type: ' + chartType);
 }
 
-function rgba(colour: Array<number>, alpha: number): string {
+function rgba(colour: number[], alpha: number): string {
   return 'rgba(' + colour.concat(alpha).join(',') + ')';
 }
 
@@ -41,7 +41,7 @@ function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function formatLineColor(colors: Array<number>): Color {
+function formatLineColor(colors: number[]): Color {
   return {
     backgroundColor: rgba(colors, 0.4),
     borderColor: rgba(colors, 1),
@@ -52,7 +52,7 @@ function formatLineColor(colors: Array<number>): Color {
   };
 }
 
-function formatBarColor(colors: Array<number>): Color {
+function formatBarColor(colors: number[]): Color {
   return {
     backgroundColor: rgba(colors, 0.6),
     borderColor: rgba(colors, 1),
@@ -61,7 +61,7 @@ function formatBarColor(colors: Array<number>): Color {
   };
 }
 
-function formatPieColors(colors: Array<number[]>): Colors {
+function formatPieColors(colors: number[][]): Colors {
   return {
     backgroundColor: colors.map((color: number[]) => rgba(color, 0.6)),
     borderColor: colors.map(() => '#fff'),
@@ -72,7 +72,7 @@ function formatPieColors(colors: Array<number[]>): Colors {
   };
 }
 
-function formatPolarAreaColors(colors: Array<number[]>): Color {
+function formatPolarAreaColors(colors: number[][]): Color {
   return {
     backgroundColor: colors.map((color: number[]) => rgba(color, 0.6)),
     borderColor: colors.map((color: number[]) => rgba(color, 1)),
@@ -95,8 +95,8 @@ function generateColor(index: number): number[] {
 /**
  * Generate colors for pie|doughnut charts
  */
-function generateColors(count: number): Array<number[]> {
-  const colorsArr: Array<number[]> = new Array(count);
+function generateColors(count: number): number[][] {
+  const colorsArr = new Array<number[]>(count);
   for (let i = 0; i < count; i++) {
     colorsArr[i] = defaultColors[i] || getRandomColor();
   }
