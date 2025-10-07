@@ -1,11 +1,3 @@
-// tslint:disable:variable-name
-// tslint:disable:no-var-keyword
-// tslint:disable:prefer-const
-// tslint:disable:only-arrow-functions
-// tslint:disable:one-variable-per-declaration
-// tslint:disable:object-literal-shorthand
-// tslint:disable:space-before-function-paren
-
 declare class Chart {
   static readonly Chart: typeof Chart;
   static readonly Tooltip: any;
@@ -31,15 +23,15 @@ export function monkeyPatchChartJsTooltip() {
   }
 
   function drawBody(pt, vm, ctx) {
-    var bodyFontSize = vm.bodyFontSize;
-    var bodySpacing = vm.bodySpacing;
-    var bodyAlign = vm._bodyAlign;
-    var body = vm.body;
-    var drawColorBoxes = vm.displayColors;
-    var labelColors = vm.labelColors;
-    var xLinePadding = 0;
-    var colorX = drawColorBoxes ? getAlignedX(vm, 'left') : 0;
-    var textColor;
+    const bodyFontSize = vm.bodyFontSize;
+    const bodySpacing = vm.bodySpacing;
+    const bodyAlign = vm._bodyAlign;
+    const body = vm.body;
+    const drawColorBoxes = vm.displayColors;
+    const labelColors = vm.labelColors;
+    let xLinePadding = 0;
+    const colorX = drawColorBoxes ? getAlignedX(vm, 'left') : 0;
+    let textColor;
 
     ctx.textAlign = bodyAlign;
     ctx.textBaseline = 'top';
@@ -48,7 +40,7 @@ export function monkeyPatchChartJsTooltip() {
     pt.x = getAlignedX(vm, bodyAlign);
 
     // Before Body
-    var fillLineOfText = function (line) {
+    const fillLineOfText = function (line) {
       ctx.fillText(line, pt.x + xLinePadding, pt.y);
       pt.y += bodyFontSize + bodySpacing;
     };
