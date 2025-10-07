@@ -13,7 +13,12 @@
     "demo:prod": "ng build demo --configuration production",
     "clean:build": "rimraf dist .angular",
     "clean:modules": "rimraf node_modules",
-    "clean:all": "npm-run-all -p clean:build clean:modules"
+    "clean:all": "npm-run-all -p clean:build clean:modules",
+    "lint": "ng lint",
+    "lint:lib": "ng lint @talentia/ng2-charts",
+    "lint:app": "ng lint demo",
+    "lint:lib-fix": "ng lint @talentia/ng2-charts --fix",
+    "lint:app-fix": "ng lint demo --fix"
   },
   "dependencies": {
     "@angular/animations": "18.2.14",
@@ -24,7 +29,7 @@
     "@angular/platform-browser": "18.2.14",
     "@angular/platform-browser-dynamic": "18.2.14",
     "@angular/router": "18.2.14",
-    "bootstrap": "5.3.8",    
+    "bootstrap": "5.3.8",
     "chart.js": "2.9.4",
     "chartjs-plugin-annotation": "0.5.7",
     "chartjs-plugin-datalabels": "0.7.0",
@@ -40,10 +45,13 @@
     "@angular/compiler-cli": "18.2.14",
     "@types/chart.js": "2.9.24",
     "@types/lodash-es": "4.17.12",
+    "angular-eslint": "18.4.3",
+    "eslint": "9.15.0",
     "ng-packagr": "18.2.1",
     "npm-run-all": "4.1.5",
     "rimraf": "6.0.1",
     "typescript": "5.5.2",
+    "typescript-eslint": "8.16.0",
     "wait-on": "9.0.1"
   }
 }

@@ -1,11 +1,3 @@
-// tslint:disable:variable-name
-// tslint:disable:no-var-keyword
-// tslint:disable:prefer-const
-// tslint:disable:only-arrow-functions
-// tslint:disable:one-variable-per-declaration
-// tslint:disable:object-literal-shorthand
-// tslint:disable:space-before-function-paren
-
 declare class Chart {
   static readonly Chart: typeof Chart;
   static readonly Tooltip: any;
@@ -35,21 +27,21 @@ export function monkeyPatchChartJsLegend() {
   }
 
   function fit() {
-    var me = this;
-    var opts = me.options;
-    var labelOpts = opts.labels;
-    var display = opts.display;
+    const me = this;
+    const opts = me.options;
+    const labelOpts = opts.labels;
+    const display = opts.display;
 
-    var ctx = me.ctx;
+    const ctx = me.ctx;
 
-    var labelFont = helpers.options._parseFont(labelOpts);
-    var fontSize = labelFont.size;
+    const labelFont = helpers.options._parseFont(labelOpts);
+    const fontSize = labelFont.size;
 
     // Reset hit boxes
-    var hitboxes = me.legendHitBoxes = [];
+    const hitboxes = me.legendHitBoxes = [];
 
-    var minSize = me.minSize;
-    var isHorizontal = me.isHorizontal();
+    const minSize = me.minSize;
+    const isHorizontal = me.isHorizontal();
 
     if (isHorizontal) {
       minSize.width = me.maxWidth; // fill all the width
@@ -59,7 +51,7 @@ export function monkeyPatchChartJsLegend() {
       minSize.height = me.maxHeight; // fill all the height
     }
 
-    var getMaxLineWidth = function (textLines) {
+    const getMaxLineWidth = function (textLines) {
       return textLines.map(function (textLine) {
         return ctx.measureText(textLine).width;
       }).reduce(function (acc, v) {
@@ -76,16 +68,16 @@ export function monkeyPatchChartJsLegend() {
         // Labels
 
         // Width of each line of legend boxes. Labels wrap onto multiple lines when there are too many to fit on one
-        var lineWidths = me.lineWidths = [0];
-        var lineHeights = me.lineHeights = [];
-        var currentLineHeight = 0;
-        var lineIndex = 0;
+        const lineWidths = me.lineWidths = [0];
+        const lineHeights = me.lineHeights = [];
+        let currentLineHeight = 0;
+        let lineIndex = 0;
 
         ctx.textAlign = 'left';
         ctx.textBaseline = 'top';
 
         helpers.each(me.legendItems, function (legendItem, i) {
-          var width, height;
+          let width, height;
 
           if (helpers.isArray(legendItem.text)) {
             width = getMaxLineWidth(legendItem.text);
@@ -126,17 +118,17 @@ export function monkeyPatchChartJsLegend() {
         }, 0);
 
       } else {
-        var vPadding = labelOpts.padding;
-        var columnWidths = me.columnWidths = [];
-        var columnHeights = me.columnHeights = [];
-        var totalWidth = labelOpts.padding;
-        var currentColWidth = 0;
-        var currentColHeight = 0;
-        var columnIndex = 0;
+        const vPadding = labelOpts.padding;
+        const columnWidths = me.columnWidths = [];
+        const columnHeights = me.columnHeights = [];
+        let totalWidth = labelOpts.padding;
+        let currentColWidth = 0;
+        let currentColHeight = 0;
+        let columnIndex = 0;
 
         helpers.each(me.legendItems, function (legendItem, i) {
-          var itemWidth;
-          var height;
+          let itemWidth;
+          let height;
 
           if (helpers.isArray(legendItem.text)) {
             itemWidth = getMaxLineWidth(legendItem.text);
@@ -184,25 +176,25 @@ export function monkeyPatchChartJsLegend() {
   }
 
   function draw() {
-    var me = this;
-    var opts = me.options;
-    var labelOpts = opts.labels;
-    var globalDefaults = defaults.global;
-    var defaultColor = globalDefaults.defaultColor;
-    var lineDefault = globalDefaults.elements.line;
-    var legendHeight = me.height;
-    var columnHeights = me.columnHeights;
-    var columnWidths = me.columnWidths;
-    var legendWidth = me.width;
-    var lineWidths = me.lineWidths;
-    var lineHeights = me.lineHeights;
+    const me = this;
+    const opts = me.options;
+    const labelOpts = opts.labels;
+    const globalDefaults = defaults.global;
+    const defaultColor = globalDefaults.defaultColor;
+    const lineDefault = globalDefaults.elements.line;
+    const legendHeight = me.height;
+    const columnHeights = me.columnHeights;
+    const columnWidths = me.columnWidths;
+    const legendWidth = me.width;
+    const lineWidths = me.lineWidths;
+    const lineHeights = me.lineHeights;
 
     if (opts.display) {
-      var ctx = me.ctx;
-      var fontColor = valueOrDefault(labelOpts.fontColor, globalDefaults.defaultFontColor);
-      var labelFont = helpers.options._parseFont(labelOpts);
-      var fontSize = labelFont.size;
-      var cursor;
+      const ctx = me.ctx;
+      const fontColor = valueOrDefault(labelOpts.fontColor, globalDefaults.defaultFontColor);
+      const labelFont = helpers.options._parseFont(labelOpts);
+      const fontSize = labelFont.size;
+      let cursor;
 
       // Canvas setup
       ctx.textAlign = 'left';
@@ -212,11 +204,11 @@ export function monkeyPatchChartJsLegend() {
       ctx.fillStyle = fontColor; // render in correct colour
       ctx.font = labelFont.string;
 
-      var boxWidth = getBoxWidth(labelOpts, fontSize);
-      var hitboxes = me.legendHitBoxes;
+      const boxWidth = getBoxWidth(labelOpts, fontSize);
+      const hitboxes = me.legendHitBoxes;
 
       // current position
-      var drawLegendBox = function (x, y, legendItem) {
+      const drawLegendBox = function (x, y, legendItem) {
         if (isNaN(boxWidth) || boxWidth <= 0) {
           return;
         }
@@ -224,7 +216,7 @@ export function monkeyPatchChartJsLegend() {
         // Set the ctx for the box
         ctx.save();
 
-        var lineWidth = valueOrDefault(legendItem.lineWidth, lineDefault.borderWidth);
+        const lineWidth = valueOrDefault(legendItem.lineWidth, lineDefault.borderWidth);
         ctx.fillStyle = valueOrDefault(legendItem.fillStyle, defaultColor);
         ctx.lineCap = valueOrDefault(legendItem.lineCap, lineDefault.borderCapStyle);
         ctx.lineDashOffset = valueOrDefault(legendItem.lineDashOffset, lineDefault.borderDashOffset);
@@ -240,9 +232,9 @@ export function monkeyPatchChartJsLegend() {
         if (opts.labels && opts.labels.usePointStyle) {
           // Recalculate x and y for drawPoint() because its expecting
           // x and y to be center of figure (instead of top left)
-          var radius = boxWidth * Math.SQRT2 / 2;
-          var centerX = x + boxWidth / 2;
-          var centerY = y + fontSize / 2;
+          const radius = boxWidth * Math.SQRT2 / 2;
+          const centerX = x + boxWidth / 2;
+          const centerY = y + fontSize / 2;
 
           // Draw pointStyle as legend symbol
           helpers.canvas.drawPoint(ctx, legendItem.pointStyle, radius, centerX, centerY);
@@ -257,7 +249,7 @@ export function monkeyPatchChartJsLegend() {
         ctx.restore();
       };
 
-      var drawStrikeThrough = function (x, y, w) {
+      const drawStrikeThrough = function (x, y, w) {
         ctx.beginPath();
         ctx.lineWidth = 2;
         ctx.moveTo(x, y);
@@ -265,7 +257,7 @@ export function monkeyPatchChartJsLegend() {
         ctx.stroke();
       };
 
-      var drawCrossOver = function (x, y, w, h) {
+      const drawCrossOver = function (x, y, w, h) {
         ctx.beginPath();
         ctx.lineWidth = 2;
         ctx.moveTo(x, y);
@@ -275,14 +267,14 @@ export function monkeyPatchChartJsLegend() {
         ctx.stroke();
       };
 
-      var fillText = function (x, y, legendItem, textWidth) {
-        var halfFontSize = fontSize / 2;
-        var xLeft = boxWidth + halfFontSize + x;
-        var yMiddle = y + halfFontSize;
+      const fillText = function (x, y, legendItem, textWidth) {
+        const halfFontSize = fontSize / 2;
+        const xLeft = boxWidth + halfFontSize + x;
+        const yMiddle = y + halfFontSize;
 
         if (helpers.isArray(legendItem.text)) {
           helpers.each(legendItem.text, function (textLine, index) {
-            var lineOffset = index * fontSize;
+            const lineOffset = index * fontSize;
             ctx.fillText(textLine, xLeft, yMiddle + lineOffset);
           });
         } else {
@@ -298,7 +290,7 @@ export function monkeyPatchChartJsLegend() {
         }
       };
 
-      var alignmentOffset = function (dimension, blockSize) {
+      const alignmentOffset = function (dimension, blockSize) {
         switch (opts.align) {
           case 'start':
             return labelOpts.padding;
@@ -310,7 +302,7 @@ export function monkeyPatchChartJsLegend() {
       };
 
       // Horizontal
-      var isHorizontal = me.isHorizontal();
+      const isHorizontal = me.isHorizontal();
       if (isHorizontal) {
         cursor = {
           x: me.left + alignmentOffset(legendWidth, lineWidths[0]),
@@ -326,7 +318,7 @@ export function monkeyPatchChartJsLegend() {
       }
 
       helpers.each(me.legendItems, function (legendItem, i) {
-        var textWidth, height, boxTopOffset;
+        let textWidth, height, boxTopOffset;
 
         if (legendItem.lineOrColumnIndex > cursor.line) {
           if (isHorizontal) {
@@ -354,11 +346,11 @@ export function monkeyPatchChartJsLegend() {
           height = fontSize;
         }
 
-        var width = boxWidth + (fontSize / 2) + textWidth;
-        var x = cursor.x;
-        var y = cursor.y;
+        const width = boxWidth + (fontSize / 2) + textWidth;
+        const x = cursor.x;
+        const y = cursor.y;
 
-        var topOffset = isHorizontal ? Math.trunc((lineHeights[cursor.line] - hitboxes[i].height) / 2) : 0;
+        const topOffset = isHorizontal ? Math.trunc((lineHeights[cursor.line] - hitboxes[i].height) / 2) : 0;
 
         drawLegendBox(x, y + boxTopOffset + topOffset, legendItem);
 

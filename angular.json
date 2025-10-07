@@ -23,11 +23,21 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng2-charts/**/*.ts",
+              "projects/ng2-charts/**/*.html"
+            ],
+            "eslintConfig": "projects/ng2-charts/eslint.config.js"
+          }
         }
       }
     },
     "demo": {
-      "projectType": "application",      
+      "projectType": "application",
       "root": "projects/demo",
       "sourceRoot": "projects/demo/src",
       "prefix": "app",
@@ -69,7 +79,7 @@
                   "inlineCritical": false
                 },
                 "fonts": true
-              },         
+              },
               "outputHashing": "all"
             },
             "development": {
@@ -91,6 +101,16 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/demo/**/*.ts",
+              "projects/demo/**/*.html"
+            ],
+            "eslintConfig": "projects/demo/eslint.config.js"
+          }
         }
       }
     }
