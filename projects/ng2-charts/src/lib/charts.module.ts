@@ -5,8 +5,6 @@ import { BaseChartDirective } from './base-chart.directive';
   declarations: [
     BaseChartDirective
   ],
-  imports: [
-  ],
   exports: [
     BaseChartDirective
   ]

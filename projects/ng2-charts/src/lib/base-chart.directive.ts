@@ -309,19 +309,22 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
 
     // Check if the changes are in the data or datasets or labels or legend
 
-    if (Object.prototype.hasOwnProperty.call(changes, 'data') && changes['data'].currentValue) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (changes.hasOwnProperty('data') && changes['data'].currentValue) {
       this.propagateDataToDatasets(changes['data'].currentValue);
 
       wantUpdate(UpdateType.Update);
     }
 
-    if (Object.prototype.hasOwnProperty.call(changes, 'datasets') && changes['datasets'].currentValue) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (changes.hasOwnProperty('datasets') && changes['datasets'].currentValue) {
       this.propagateDatasetsToData(changes['datasets'].currentValue);
 
       wantUpdate(UpdateType.Update);
     }
 
-    if (Object.prototype.hasOwnProperty.call(changes, 'labels')) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (changes.hasOwnProperty('labels')) {
       if (this.chart) {
         this.chart.data.labels = changes['labels'].currentValue;
       }
@@ -329,7 +332,8 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
       wantUpdate(UpdateType.Update);
     }
 
-    if (Object.prototype.hasOwnProperty.call(changes, 'legend')) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (changes.hasOwnProperty('legend')) {
       if (this.chart) {
         this.chart.config.options.legend.display = changes['legend'].currentValue;
         this.chart.generateLegend();
@@ -338,7 +342,8 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
       wantUpdate(UpdateType.Update);
     }
 
-    if (Object.prototype.hasOwnProperty.call(changes, 'options')) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (changes.hasOwnProperty('options')) {
       wantUpdate(UpdateType.Refresh);
     }
 
