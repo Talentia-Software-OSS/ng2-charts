@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from '@talentia/ng2-charts';
+import { MultiDataSet, Label, ChartsModule } from '@talentia/ng2-charts';
 
 @Component({
-  standalone: false,
-  selector: 'app-doughnut-chart',
-  templateUrl: './doughnut-chart.component.html'
+    standalone: true,
+    selector: 'app-doughnut-chart',
+    templateUrl: './doughnut-chart.component.html',
+    imports: [ChartsModule]
 })
 export class DoughnutChartComponent implements OnInit {
   // Doughnut

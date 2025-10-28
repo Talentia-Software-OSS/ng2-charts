@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
-import { Label } from '@talentia/ng2-charts';
+import { Label, ChartsModule } from '@talentia/ng2-charts';
 
 @Component({
-  standalone: false,
-  selector: 'app-scatter-chart',
-  templateUrl: './scatter-chart.component.html'
+    standalone: true,
+    selector: 'app-scatter-chart',
+    templateUrl: './scatter-chart.component.html',
+    imports: [ChartsModule]
 })
 export class ScatterChartComponent implements OnInit {
   // scatter

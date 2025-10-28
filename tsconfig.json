@@ -29,7 +29,6 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",

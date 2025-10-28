@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseChartDirective, ChartsModule, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from '@talentia/ng2-charts';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
@@ -15,28 +14,26 @@ import { PolarAreaChartComponent } from './polar-area-chart/polar-area-chart.com
 import { RadarChartComponent } from './radar-chart/radar-chart.component';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LineChartComponent,
-    BarChartComponent,
-    DoughnutChartComponent,
-    RadarChartComponent,
-    PieChartComponent,
-    PolarAreaChartComponent,
-    BubbleChartComponent,
-    ScatterChartComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    BsDropdownModule.forRoot(),
-    ChartsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule(/* TODO(standalone-migration): clean up removed NgModule class manually. 
+{
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        ChartsModule,
+        LineChartComponent,
+        BarChartComponent,
+        DoughnutChartComponent,
+        RadarChartComponent,
+        PieChartComponent,
+        PolarAreaChartComponent,
+        BubbleChartComponent,
+        ScatterChartComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+} */)
 export class AppModule {
    constructor() {
     BaseChartDirective.unregisterPlugin(ChartDataLabels);
