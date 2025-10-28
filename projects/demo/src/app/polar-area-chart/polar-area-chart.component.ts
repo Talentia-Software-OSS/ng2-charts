@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { SingleDataSet, Label } from '@talentia/ng2-charts';
+import { SingleDataSet, Label, ChartsModule } from '@talentia/ng2-charts';
 import { ChartType } from 'chart.js';
 
 @Component({
-  standalone: false,
-  selector: 'app-polar-area-chart',
-  templateUrl: './polar-area-chart.component.html'
+    standalone: true,
+    selector: 'app-polar-area-chart',
+    templateUrl: './polar-area-chart.component.html',
+    imports: [ChartsModule]
 })
 export class PolarAreaChartComponent implements OnInit {
   // PolarArea

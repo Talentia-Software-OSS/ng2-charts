@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
-import { Label } from '@talentia/ng2-charts';
+import { Label, ChartsModule } from '@talentia/ng2-charts';
 
 @Component({
-  standalone: false,
-  selector: 'app-radar-chart',
-  templateUrl: './radar-chart.component.html'
+    standalone: true,
+    selector: 'app-radar-chart',
+    templateUrl: './radar-chart.component.html',
+    imports: [ChartsModule]
 })
 export class RadarChartComponent implements OnInit {
   // Radar

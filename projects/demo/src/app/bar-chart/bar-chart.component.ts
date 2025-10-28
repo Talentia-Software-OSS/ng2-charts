@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { Label } from '@talentia/ng2-charts';
+import { Label, ChartsModule } from '@talentia/ng2-charts';
 
 @Component({
-  standalone: false,
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html'
+    standalone: true,
+    selector: 'app-bar-chart',
+    templateUrl: './bar-chart.component.html',
+    imports: [ChartsModule]
 })
 export class BarChartComponent implements OnInit {
   public barChartOptions: ChartOptions = {

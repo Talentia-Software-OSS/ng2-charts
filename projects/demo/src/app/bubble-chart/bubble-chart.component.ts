@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color } from '@talentia/ng2-charts';
+import { Color, ChartsModule } from '@talentia/ng2-charts';
 
 @Component({
-  standalone: false,
-  selector: 'app-bubble-chart',
-  templateUrl: './bubble-chart.component.html'
+    standalone: true,
+    selector: 'app-bubble-chart',
+    templateUrl: './bubble-chart.component.html',
+    imports: [ChartsModule]
 })
 export class BubbleChartComponent implements OnInit {
   public bubbleChartOptions: ChartOptions = {
