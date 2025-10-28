@@ -1,0 +1,57 @@
+.header.sticky {
+  position: sticky;
+  top:0;
+  background: purple;
+  height: 130px;
+}
+.header.title {
+  text-align: center;
+  color: white;
+  margin: 0;
+  height: 50px;
+  line-height: 50px;
+}
+.header.description {
+  text-align: center;
+  color: white;
+  height: 35px;
+  line-height: 25px;
+}
+
+.header .nav {
+  line-height: 35px;
+  height: 45px;
+  background-color: #111;
+}
+
+.header .nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header .nav ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 5px 8px;
+  white-space: nowrap;
+}
+
+.header .nav ul li a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+section {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section article {
+  margin-top: 10px;
+  width: 65%;
+}

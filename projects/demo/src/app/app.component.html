@@ -1,4 +1,4 @@
-<nav data-bs-theme="dark" class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+<!-- <nav data-bs-theme="dark" class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,4 +46,44 @@
       </div>
     </div>    
   </div>
-</div>
+</div> -->
+
+<header class="header sticky">
+  <h1 class="header title">{{ title }}</h1>
+  <div class="header description">
+    Reactive, responsive, beautiful charts for Angular based on Chart.js.
+  </div>
+  <nav class="nav">
+    <ul>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="bar-chart">Bar Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="bubble-chart">Bubble Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="doughnut-chart">Doughnut Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="line-chart">Line Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="pie-chart">Pie Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="polar-area-chart">Polar Area Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="radar-chart">Radar Chart</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="scatter-chart">Scatter Chart</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <article>
+    <router-outlet />
+  </article>
+</section>

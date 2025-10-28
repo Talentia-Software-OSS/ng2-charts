@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, BaseChartDirective, Label } from '@talentia/ng2-charts';
+import { Color, BaseChartDirective, Label, ChartsModule } from '@talentia/ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
 
 @Component({
-  standalone: false,
-  selector: 'app-line-chart',
-  templateUrl: './line-chart.component.html'
+    standalone: true,
+    selector: 'app-line-chart',
+    templateUrl: './line-chart.component.html',
+    imports: [ChartsModule]
 })
 export class LineChartComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
-import { Label } from '@talentia/ng2-charts';
+import { Label, ChartsModule } from '@talentia/ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
-  standalone: false,
-  selector: 'app-pie-chart',
-  templateUrl: './pie-chart.component.html'
+    standalone: true,
+    selector: 'app-pie-chart',
+    templateUrl: './pie-chart.component.html',
+    imports: [ChartsModule]
 })
 export class PieChartComponent implements OnInit {
   // Pie
