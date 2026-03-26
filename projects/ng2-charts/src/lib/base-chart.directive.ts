@@ -3,6 +3,7 @@ import {
   DoCheck,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -78,6 +79,9 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
   @Output() public chartClick = new EventEmitter<{ event?: MouseEvent, active?: {}[] }>();
   @Output() public chartHover = new EventEmitter<{ event: MouseEvent, active: {}[] }>();
 
+  private element: ElementRef;
+  private themeService: ThemeService;
+
   public ctx: string;
   public chart: Chart;
 
@@ -109,10 +113,10 @@ export class BaseChartDirective implements OnChanges, OnInit, OnDestroy, DoCheck
     pluginService.unregister(plugin);
   }
 
-  public constructor(
-    private element: ElementRef,
-    private themeService: ThemeService,
-  ) { }
+  public constructor() {
+    this.element = inject(ElementRef);
+    this.themeService = inject(ThemeService);
+   }
 
   public ngOnInit(): void {
     this.ctx = this.element.nativeElement.getContext('2d');
