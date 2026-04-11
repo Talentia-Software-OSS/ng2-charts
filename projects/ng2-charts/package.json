@@ -1,6 +1,6 @@
 {
   "name": "@talentia/ng2-charts",
-  "version": "2.4.12",  
+  "version": "2.4.13",  
   "title": "ng2-charts",
   "description": "Reactive, responsive, beautiful charts for Angular based on Chart.js",
   "license": "ISC",
@@ -9,7 +9,7 @@
     "@angular/common": "^20.0.0",
     "@angular/core": "^20.0.0",
     "chart.js": "~2.9.4",
-    "lodash-es": "~4.17.23"
+    "lodash-es": "~4.18.1"
   },
   "keywords": [
     "chart.js",

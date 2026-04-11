@@ -1,6 +1,6 @@
 {
   "name": "ng2-charts",
-  "version": "2.4.12",
+  "version": "2.4.13",
   "scripts": {
     "build": "npm-run-all -s clean:build build:prod",
     "start": "npm-run-all -s clean:build build:dev watch:demo",
@@ -35,7 +35,7 @@
     "chart.js": "2.9.4",
     "chartjs-plugin-annotation": "0.5.7",
     "chartjs-plugin-datalabels": "0.7.0",
-    "lodash-es": "4.17.23",
+    "lodash-es": "4.18.1",
     "rxjs": "7.8.1",
     "tslib": "2.6.2",
     "zone.js": "0.15.1"
