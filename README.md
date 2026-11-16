@@ -4,18 +4,36 @@ Reactive, responsive, beautiful charts for Angular based on Chart.js
 
 - - -
 
+## Compatibility
+
+| @talentia/ng2-charts | Angular |
+| -------------------- | ------- |
+| 2.4.14               | 21.x    |
+| 2.4.12 - 2.4.13      | 20.x    |
+| 2.4.10 - 2.4.11      | 19.x    |
+| 2.4.8 - 2.4.9        | 18.x    |
+| 2.4.7                | 17.x    |
+| 2.4.5 - 2.4.6        | 16.x    |
+| 2.4.4                | 15.x    |
+
 ### Installation
 
 1. You can install ***@talentia/ng2-charts*** using npm
 
   ```bash
-  npm install @talentia/ng2-charts@2.4.13 --save
+  npm install @talentia/ng2-charts@2.4.14 --save
   ```
 
 2. You need to install and include `Chart.js` v2.9.4 in your application (it is a peer dependency of this library) (more info can be found in the official `chart.js` [documentation](http://www.chartjs.org/docs/#getting-started))
 
   ```bash
   npm install chart.js@2.9.4 --save
+  ```
+
+3. You also need `lodash-es` 4.18.x (peer dependency of this library)
+
+  ```bash
+  npm install lodash-es@~4.18.1 --save
   ```
 
 ## API
@@ -40,7 +58,7 @@ There is one directive for all chart types: `baseChart`, and there are 8 types o
 - `data` (`SingleOrMultiDataSet`) -  set of points of the chart, it should be `MultiDataSet` only for `line`, `bar`, `radar` and `doughnut`, otherwise `SingleDataSet`
 - `datasets` (`{ data: SingleDataSet, label: string }[]`) - `data` see about, the `label` for the dataset which appears in the legend and tooltips
 - `labels` (`Label[]`) - x axis labels. It's necessary for charts: `line`, `bar` and `radar`. And just labels (on hover) for charts: `polarArea`, `pie` and `doughnut`. `Label` is either a single `string`, or it may be a `string[]` representing a multi-line label where each array element is on a new line.
-- `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`
+- `chartType` (`ChartType`) - indicates the type of charts, it can be: `line`, `bar`, `radar`, `pie`, `polarArea`, `doughnut`, `bubble`, `scatter`
 - `options` (`ChartOptions`) - chart options (as from [Chart.js documentation](http://www.chartjs.org/docs/))
 - `colors` (`Color[]`) - data colors, will use default and|or random colors if not specified (see below)
 - `legend`: (`boolean = false`) - if true show legend below the chart, otherwise not be shown
@@ -104,16 +122,16 @@ The `overrides` object has the same type as the chart options object `ChartOptio
 
 Please follow this guidelines when reporting bugs and feature requests:
 
-1. Use [GitHub Issues](https://github.com/valor-software/ng2-charts/issues) board to report bugs and feature requests (not our email address)
+1. Use [GitHub Issues](https://github.com/Talentia-Software-OSS/ng2-charts/issues) board to report bugs and feature requests (not our email address)
 2. Please **always** write steps to reproduce the error. That way we can focus on fixing the bug, not scratching our heads trying to reproduce it.
 
 Thanks for understanding!
 
 ## Further help
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+This project currently uses [Angular CLI](https://github.com/angular/angular-cli) version 21.2.25.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Reference
 
