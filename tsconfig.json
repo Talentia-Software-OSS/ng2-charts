@@ -8,8 +8,8 @@
         "./dist/ng2-charts"
       ]
     },
-    "rootDir": "./projects",
     "outDir": "./dist/out-tsc",
+    "rootDir": "./projects",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -30,11 +30,7 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
